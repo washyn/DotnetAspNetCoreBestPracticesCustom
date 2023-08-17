@@ -1,35 +1,67 @@
+using Serilog;
+using Serilog.Events;
+
 namespace Acme.ApiHost
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task<int> Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var loggerConfiguration = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Debug)
+                .Enrich.FromLogContext()
+                .WriteTo.Async(c => c.File("Logs/logs.log"))
+                .WriteTo.Async(c => c.Console());
 
-            // Add services to the container.
+            Log.Logger = loggerConfiguration.CreateLogger();
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            
+            try
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                var builder = CreateHostBuilder(args);
+                var app = builder.Build();
+                Log.Information("Starting Acme.Basic");
+                await app.RunAsync();
+                return 0;
             }
+            catch (Exception ex)
+            {
+                if (ex.GetType().Name.Equals("StopTheHostException", StringComparison.Ordinal))
+                {
+                    throw;
+                }
 
-            app.UseHttpsRedirection();
+                Log.Fatal(ex, "Acme.Basic terminated unexpectedly!");
+                return 1;
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+        }
+        
+        internal static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+                .UseSerilog()
+                .UseAutofac();
+    }
+    
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddApplication<AppModule>();
+        }
 
-            app.UseAuthorization();
-
-            app.MapControllers();
-
-            app.Run();
-
+        public void Configure(IApplicationBuilder app)
+        {
+            app.InitializeApplication();
         }
     }
 }

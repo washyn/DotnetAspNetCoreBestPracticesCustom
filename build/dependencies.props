@@ -3,6 +3,8 @@
     <NetStandardTargetVersion>netstandard2.0</NetStandardTargetVersion>
     <NetCoreTargetVersion>net7.0</NetCoreTargetVersion>
     <LangVersion>10</LangVersion>
+    <AbpVersion>6.0.3</AbpVersion>
+    <AspNetFrameworkPackageVersion>7.0.0</AspNetFrameworkPackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Label="Package Versions">
