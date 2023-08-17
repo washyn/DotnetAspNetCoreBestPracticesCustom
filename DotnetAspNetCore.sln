@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FE25AF4F-BD5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.ApiHost", "src\Acme.ApiHost\Acme.ApiHost.csproj", "{39DDD992-2684-4475-94BC-2827203295F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9AD7555-2E09-4DF0-94A1-70CF310DDEE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.ApiHost.Tests", "test\Acme.ApiHost.Tests\Acme.ApiHost.Tests.csproj", "{13373819-3D21-4E7E-9252-9814F9A80BC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{39DDD992-2684-4475-94BC-2827203295F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39DDD992-2684-4475-94BC-2827203295F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39DDD992-2684-4475-94BC-2827203295F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13373819-3D21-4E7E-9252-9814F9A80BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13373819-3D21-4E7E-9252-9814F9A80BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13373819-3D21-4E7E-9252-9814F9A80BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13373819-3D21-4E7E-9252-9814F9A80BC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{39DDD992-2684-4475-94BC-2827203295F1} = {FE25AF4F-BD58-47B2-AB54-4C3234F9BE2E}
+		{13373819-3D21-4E7E-9252-9814F9A80BC3} = {A9AD7555-2E09-4DF0-94A1-70CF310DDEE7}
 	EndGlobalSection
 EndGlobal
