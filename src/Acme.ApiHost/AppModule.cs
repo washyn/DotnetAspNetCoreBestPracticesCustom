@@ -107,7 +107,7 @@ public class AppModule : AbpModule
                 configurationContext.UseSqlServer();
             });
         });
-    
+
         context.Services.AddAbpDbContext<BookStoreDbContext>(options =>
         {
             /* You can remove "includeAllEntities: true" to create
@@ -129,6 +129,7 @@ public class AppModule : AbpModule
         }
 
         app.UseCorrelationId();
+        app.UseStaticFiles();
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
