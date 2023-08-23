@@ -25,16 +25,16 @@ export class MessageService {
   constructor(private _matDialog: MatDialog) {}
 
   info(message: string, title?: string, options?: any): any {
-    this.showMessage('info', message, title, options);
+    this.showMessage('info', message, title, undefined, options);
   }
   success(message: string, title?: string, options?: any): any {
-    this.showMessage('success', message, title, options);
+    this.showMessage('success', message, title, undefined, options);
   }
   warn(message: string, title?: string, options?: any): any {
-    this.showMessage('warn', message, title, options);
+    this.showMessage('warn', message, title, undefined, options);
   }
   error(message: string, title?: string, options?: any): any {
-    this.showMessage('error', message, title, options);
+    this.showMessage('error', message, title, undefined, options);
   }
   confirm(
     message: string,

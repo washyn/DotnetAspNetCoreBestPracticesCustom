@@ -5,19 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AbpCustomModule } from './abp-custom.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {MatButtonModule} from "@angular/material/button";
-import {MessageComponent} from "./components/message/message.component";
-import {MatDialogModule} from "@angular/material/dialog";
-import {NotifyComponent} from "./components/notify/notify.component";
-import {MatIconModule} from "@angular/material/icon";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MessageComponent } from './components/message/message.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NotifyComponent } from './components/notify/notify.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    NotifyComponent,
-    MessageComponent,
-    AppComponent,
-  ],
+  declarations: [NotifyComponent, MessageComponent, AppComponent],
   imports: [
     BrowserModule,
     AbpCustomModule.forRoot(),
@@ -29,6 +25,6 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
