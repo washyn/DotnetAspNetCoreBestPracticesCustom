@@ -1,0 +1,36 @@
+{
+    "workbench.color Theme": "Solarized Light",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "literals",
+    "javascript.inlay Hints.parameterNames.enabled": "literals",
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "javascript.inlayHints.functionLike ReturnTypes.enabled": true,
+    "javascript.inlay Hints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlay Hints. functionLike ReturnTypes.enabled": true,
+    "editor.fontFamily": "Jetbrains mono, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "csharp.inlayHints.enable InlayHints ForImplicitVariableTypes": true,
+    "csharp.inlayHints.enable InlayHints For ImplicitObject Creation": true,
+    "csharp.inlayHints.enable InlayHintsForLambdaParameterTypes": true,
+    "csharp.inlayHints.enable InlayHintsForTypes": true,
+    "terminal.integrated.fontSize": 12,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp. prettier-vscode"
+    },
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    "diffEditor.ignoreTrimWhitespace": false
+}
