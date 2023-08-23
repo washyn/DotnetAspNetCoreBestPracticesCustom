@@ -1,0 +1,19 @@
+.text-center {
+  text-align: center;
+}
+
+.icon-message {
+  text-align: center;
+  margin: 30px 30px 0 30px;
+}
+
+.big-icon {
+  height: 60px;
+  width: 60px;
+  font-size: 60px;
+  color: #505050;
+}
+
+.dialog-actions {
+  margin-bottom: 20px;
+}

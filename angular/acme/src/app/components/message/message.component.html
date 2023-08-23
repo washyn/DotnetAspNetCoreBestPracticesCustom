@@ -1,0 +1,15 @@
+<div class="icon-message">
+  <mat-icon class="big-icon" aria-hidden="false" aria-label="Example home icon" [fontIcon]="icon"></mat-icon>
+</div>
+<h2 class="text-center" *ngIf="data.title" mat-dialog-title >{{data.title}}</h2>
+<mat-dialog-content class="text-center mat-typography">
+  <h3>{{data.message}}</h3>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions" align="center">
+  <button mat-raised-button *ngIf="data.type === 'confirm'" mat-dialog-close [mat-dialog-close]="false">Cancelar</button>
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+  <button mat-raised-button *ngIf="data.type === 'confirm'" [mat-dialog-close]="true">&nbsp;&nbsp;&nbsp;Si&nbsp;&nbsp;&nbsp;</button>
+  <button mat-raised-button *ngIf="data.type !== 'confirm'" [mat-dialog-close]="true">&nbsp;&nbsp;&nbsp;Ok&nbsp;&nbsp;&nbsp;
+  </button>
+</mat-dialog-actions>

@@ -2761,6 +2761,11 @@
   "resolved" "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz"
   "version" "1.1.1"
 
+"abp-web-resources@^5.8.0":
+  "integrity" "sha512-QOeJALKxhvuvjAjZDU37jiN88GPExB02h37uQoAVLc9XzHQrHOGt5YBmW4f4t+H1tS2JurrX/zx0ZfFAX4y6/A=="
+  "resolved" "https://registry.npmjs.org/abp-web-resources/-/abp-web-resources-5.8.0.tgz"
+  "version" "5.8.0"
+
 "accepts@~1.3.4", "accepts@~1.3.5", "accepts@~1.3.8":
   "integrity" "sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw=="
   "resolved" "https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz"
