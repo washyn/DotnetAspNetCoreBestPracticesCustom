@@ -10,7 +10,7 @@
     "typescript.inlayHints.parameterTypes.enabled": true,
     "typescript.inlay Hints. functionLike ReturnTypes.enabled": true,
     "editor.fontFamily": "Jetbrains mono, 'Courier New', monospace",
-    "editor.fontSize": 12,
+    // "editor.fontSize": 12,
     "editor.fontLigatures": true,
     "workbench.iconTheme": "material-icon-theme",
     "csharp.inlayHints.enable InlayHints ForImplicitVariableTypes": true,
