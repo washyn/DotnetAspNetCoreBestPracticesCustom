@@ -35,6 +35,7 @@ export class NotifyService {
   }
 
   private showNotity(typeNotify: TypeNotify, message: string, title?: string, options?: any) {
+    // se puede agregar el panel classs con el type notity
     this._snackBar.openFromComponent<NotifyComponent, NotifyData>(NotifyComponent, {
       duration: 1000 * 3,
       horizontalPosition: 'right',
@@ -44,6 +45,7 @@ export class NotifyService {
         message: message,
       },
       ...options,
+      panelClass: '',
     });
   }
 }

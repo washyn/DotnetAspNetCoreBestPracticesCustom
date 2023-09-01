@@ -8,6 +8,7 @@ export interface MessageData {
   message: string;
   title?: string;
   type: TypeMessage;
+  options?: any;
 }
 // namespace message {
 //   //TODO: these methods return jQuery.Promise instead of any. fix it.
@@ -57,7 +58,10 @@ export class MessageService {
       data: {
         message,
         title,
-        type: type,
+        type,
+        options: {
+          ...options,
+        },
       } as MessageData,
       width: '350px',
       autoFocus: 'dialog',

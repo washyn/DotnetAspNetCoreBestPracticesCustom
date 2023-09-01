@@ -18,11 +18,19 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    this.util.message.confirm('hello', 'Develop', (isConfirmed) => {
-      if (isConfirmed) {
-        this.util.notify.info('confirmado');
+    this.util.message.confirm(
+      'hello',
+      'Develop',
+      (isConfirmed) => {
+        if (isConfirmed) {
+          this.util.notify.info('confirmado');
+        }
+      },
+      {
+        confirmText: 'Si confirmo',
+        cancelText: 'No, cancelar',
       }
-    });
+    );
   }
 
   ngOnInit(): void {
