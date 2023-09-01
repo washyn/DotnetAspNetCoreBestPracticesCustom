@@ -32,5 +32,6 @@
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "dotnet.defaultSolution": "DotnetAspNetCore.sln"
 }

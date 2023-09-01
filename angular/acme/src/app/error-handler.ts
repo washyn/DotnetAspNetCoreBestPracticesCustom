@@ -121,10 +121,7 @@ export class ErrorHandler {
 
   private handleError(err: any) {
     if (err instanceof HttpErrorResponse && err.url?.includes('openid-configuration')) {
-      console.log('se omite el trato del error');
       return;
-    } else {
-      console.log('continuar con el trato del error');
     }
 
     const body = err?.error?.error || {
@@ -133,14 +130,20 @@ export class ErrorHandler {
     };
 
     if (err instanceof HttpErrorResponse && err.headers.get('_AbpErrorFormat')) {
+      console.log('Abp errror format');
+
       const confirmation$ = this.showErrorWithRequestBody(body);
 
       if (err.status === 401) {
+        console.log('navegacion a login 401');
+
         confirmation$.subscribe(() => {
           this.navigateToLogin();
         });
       }
     } else {
+      console.log('otro error difrente a 401');
+
       switch (err.status) {
         case 401:
           this.canCreateCustomError(401)
@@ -155,6 +158,8 @@ export class ErrorHandler {
                   defaultValue: DEFAULT_ERROR_MESSAGES.defaultError401.details,
                 }
               ).subscribe(() => this.navigateToLogin());
+          console.log('switch 401');
+
           break;
         case 403:
           this.createErrorComponent({
@@ -168,6 +173,7 @@ export class ErrorHandler {
             },
             status: 403,
           });
+          console.log('switch 403');
           break;
         case 404:
           this.canCreateCustomError(404)
@@ -182,6 +188,7 @@ export class ErrorHandler {
                   defaultValue: DEFAULT_ERROR_MESSAGES.defaultError404.title,
                 }
               );
+          console.log('switch 404');
           break;
         case 500:
           this.createErrorComponent({
@@ -195,9 +202,11 @@ export class ErrorHandler {
             },
             status: 500,
           });
+          console.log('switch 500');
           break;
         case 0:
           if (err.statusText === 'Unknown Error') {
+            console.log('Unknown Error');
             this.createErrorComponent({
               title: {
                 key: DEFAULT_ERROR_LOCALIZATIONS.defaultError.title,
@@ -209,6 +218,7 @@ export class ErrorHandler {
           }
           break;
         default:
+          console.log('default lanza error');
           this.showError(
             {
               key: DEFAULT_ERROR_LOCALIZATIONS.defaultError.details,
@@ -264,6 +274,13 @@ export class ErrorHandler {
       };
       title = '';
     }
+    // TODO: mostrar el message en message.error() tipo error
+    // sienpre mostrar solo el message
+    console.log('showErrorWithRequestBody');
+    console.log(body);
+    console.log('message, title');
+    console.log(message);
+    console.log(title);
 
     return this.showError(message, title);
   }

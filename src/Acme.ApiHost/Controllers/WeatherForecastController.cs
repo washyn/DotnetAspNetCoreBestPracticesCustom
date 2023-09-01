@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Volo.Abp;
 
 namespace Acme.ApiHost.Controllers;
 
@@ -21,6 +22,9 @@ public class WeatherForecastController : ControllerBase
     [HttpGet()]
     public IEnumerable<WeatherForecast> Get()
     {
+        // throw new UserFriendlyException("Error interno amigable...");
+        // throw new BusinessException("4534", "Error de negocio");
+
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
