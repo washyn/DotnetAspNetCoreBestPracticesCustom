@@ -36,7 +36,13 @@ public class WeatherForecastController : ControllerBase
     [HttpPost]
     public void Create(WeatherForecast model)
     {
-        data.Append(model);
+        data.Add(new WeatherForecast()
+        {
+            Date = model.Date,
+            Id = model.Id,
+            Summary = model.Summary,
+            TemperatureC = model.TemperatureC,
+        });
     }
 
     [Route("{id:guid}")]

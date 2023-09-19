@@ -1,0 +1,21 @@
+#@id = 55b2cace-bfae-4f1a-9575-2628c6575dd6
+
+###
+GET http://localhost:5032/api/weather-forecast
+
+###
+POST http://localhost:5032/api/weather-forecast
+Content-Type: application/json
+
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa4",
+  "date": "2023-09-19T01:47:00.606Z",
+  "temperatureC": 0,
+  "summary": "string"
+}
+
+###
+GET http://localhost:5032/api/weather-forecast/55b2cace-bfae-4f1a-9575-2628c6575dd6
+
+###
+DELETE http://localhost:5032/api/weather-forecast/55b2cace-bfae-4f1a-9575-2628c6575dd6
