@@ -2,7 +2,8 @@ namespace Acme.ApiHost;
 
 public class WeatherForecast
 {
-    public DateOnly Date { get; set; }
+    public Guid Id { get; set; }
+    public DateTime Date { get; set; }
 
     public int TemperatureC { get; set; }
 

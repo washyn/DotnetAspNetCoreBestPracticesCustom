@@ -1,15 +1,23 @@
+using System.ComponentModel.Design;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
+using System.Linq;
 
 namespace Acme.ApiHost.Controllers;
 
 [ApiController]
-[Route("weather-forecast")]
+[Route("api/weather-forecast")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
+    public static List<WeatherForecast> data = new List<WeatherForecast>()
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        new WeatherForecast
+        {
+            Date = DateTime.Now,
+            TemperatureC = 5,
+            Summary = "Freezing",
+            Id = Guid.Parse("55b2cace-bfae-4f1a-9575-2628c6575dd6"),
+        }
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
@@ -19,18 +27,31 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet()]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet]
+    public IEnumerable<WeatherForecast> GetAll()
     {
-        // throw new UserFriendlyException("Error interno amigable...");
-        // throw new BusinessException("4534", "Error de negocio");
+        return data.ToArray();
+    }
 
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+    [HttpPost]
+    public void Create(WeatherForecast model)
+    {
+        data.Append(model);
+    }
+
+    [Route("{id:guid}")]
+    [HttpDelete]
+    public void Delete(Guid id)
+    {
+        _logger.LogInformation("req1qqqqqqqqqq", id);
+        var item = data.FirstOrDefault(x => x.Id == id);
+        data.Remove(item);
+    }
+
+    [Route("{id:guid}")]
+    [HttpGet]
+    public WeatherForecast Get(Guid id)
+    {
+        return data.FirstOrDefault(x => x.Id == id);
     }
 }
