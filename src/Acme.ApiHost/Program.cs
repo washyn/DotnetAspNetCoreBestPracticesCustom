@@ -12,7 +12,7 @@ namespace Acme.ApiHost
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Debug)
                 .Enrich.FromLogContext()
-                .WriteTo.Async(c => c.File("Logs/logs.log"))
+                .WriteTo.Async(c => c.File("Logs/logs.log", rollingInterval: RollingInterval.Day))
                 .WriteTo.Async(c => c.Console());
 
             Log.Logger = loggerConfiguration.CreateLogger();
