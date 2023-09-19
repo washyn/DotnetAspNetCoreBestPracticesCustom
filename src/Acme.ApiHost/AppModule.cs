@@ -1,11 +1,15 @@
 ﻿using Acme.ApiHost.Data;
+using Acme.ApiHost.Others;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
+using Volo.Abp.Dapper;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -21,7 +25,8 @@ namespace Acme.ApiHost;
        typeof(AbpAutoMapperModule),
        typeof(AbpSwashbuckleModule),
        typeof(AbpAspNetCoreSerilogModule),
-       typeof(Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule)
+       typeof(Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule),
+       typeof(AbpDapperModule)
 )]
 public class AppModule : AbpModule
 {
@@ -31,7 +36,7 @@ public class AppModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
+        context.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>(nameof(DatabaseHealthCheck));
         ConfigureMultiTenancy();
         ConfigureUrls(configuration);
         ConfigureCors(context, configuration);
@@ -127,7 +132,11 @@ public class AppModule : AbpModule
         {
             app.UseDeveloperExceptionPage();
         }
-
+        app.UseHealthChecks("/health", new HealthCheckOptions()
+        {
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+        
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
