@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace Acme.ApiHost.Controllers;
 
-[ApiController]
 [Route("api/weather-forecast")]
 public class WeatherForecastController : ControllerBase
 {
@@ -27,8 +26,9 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
+    // NOTA: cuando se usa abp no es necesario usar el api controller, esto anula las convenciones de default request convenciones
     [HttpGet]
-    public IEnumerable<WeatherForecast> GetAll()
+    public IEnumerable<WeatherForecast> GetAll(WeatherForecast filter)
     {
         return data.ToArray();
     }

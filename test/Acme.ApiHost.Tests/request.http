@@ -1,5 +1,3 @@
-#@id = 55b2cace-bfae-4f1a-9575-2628c6575dd6
-
 ###
 GET http://localhost:5032/api/weather-forecast
 
