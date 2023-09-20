@@ -7,7 +7,7 @@ using Volo.Abp.MultiTenancy;
 
 // using Volo.Abp.Identity;
 // using Volo.Abp.TenantManagement;
-
+// TODO: can be add arg checker for migrate initial data...
 
 namespace Acme.ApiHost.Data
 {
