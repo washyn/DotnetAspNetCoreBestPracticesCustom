@@ -1,8 +1,10 @@
-﻿using Acme.ApiHost.Data;
+﻿using System.Globalization;
+using Acme.ApiHost.Data;
 using Acme.ApiHost.Others;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
@@ -11,9 +13,11 @@ using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Dapper;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
+using Volo.Abp.Timing;
 using Volo.Abp.UI.Navigation.Urls;
 
 namespace Acme.ApiHost;
@@ -43,6 +47,14 @@ public class AppModule : AbpModule
         ConfigureSwagger(context.Services);
         ConfigureAutoApiControllers();
         ConfigureEfCore(context);
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Languages.Add(new LanguageInfo("es-pe", "es-pe", "Peru"));
+        });
+        Configure<AbpClockOptions>(options =>
+        {
+            options.Kind = DateTimeKind.Local;
+        });
     }
 
     private void ConfigureMultiTenancy()
@@ -136,7 +148,24 @@ public class AppModule : AbpModule
         {
             ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
         });
-        
+
+        var supportedCultures = new[]
+        {
+            new CultureInfo("es-pe"),
+        };
+        app.UseAbpRequestLocalization(options =>
+        {
+            options.DefaultRequestCulture = new RequestCulture("es-pe");
+            options.SupportedCultures = supportedCultures;
+            options.SupportedUICultures = supportedCultures;
+            options.RequestCultureProviders = new List<IRequestCultureProvider>
+            {
+                new QueryStringRequestCultureProvider(),
+                new CookieRequestCultureProvider()
+            };
+        });
+
+
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
