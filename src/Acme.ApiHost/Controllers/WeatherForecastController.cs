@@ -5,7 +5,9 @@ using System.Linq;
 
 namespace Acme.ApiHost.Controllers;
 
+/// <inheritdoc />
 [Route("api/weather-forecast")]
+[RemoteService()]
 public class WeatherForecastController : ControllerBase
 {
     public static List<WeatherForecast> data = new List<WeatherForecast>()
@@ -26,7 +28,7 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    // NOTA: cuando se usa abp no es necesario usar el api controller, esto anula las convenciones de default request convenciones
+    // NOTA: cuando se usa abp no es necesario usar el api controller, esto anula las convenciones de default request convenciones, se deberia usar el remote service... para tomar las convenciones de abp
     // TODO: fix
     [HttpGet]
     public IEnumerable<WeatherForecast> GetAll(WeatherForecast filter)
@@ -34,6 +36,10 @@ public class WeatherForecastController : ControllerBase
         return data.ToArray();
     }
 
+    /// <summary>
+    /// Crea un nuevo recurso.
+    /// </summary>
+    /// <param name="model"></param>
     [HttpPost]
     public void Create(WeatherForecast model)
     {
