@@ -27,6 +27,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     // NOTA: cuando se usa abp no es necesario usar el api controller, esto anula las convenciones de default request convenciones
+    // TODO: fix
     [HttpGet]
     public IEnumerable<WeatherForecast> GetAll(WeatherForecast filter)
     {
