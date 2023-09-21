@@ -90,6 +90,9 @@ public class AppModule : AbpModule
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "Samples API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
+                // aded custom...
+                var name = typeof(AppModule).Assembly.GetName().Name;
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{name}.xml"));
             }
         );
     }
