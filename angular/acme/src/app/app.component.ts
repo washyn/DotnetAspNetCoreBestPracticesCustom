@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.get().subscribe((a) => {
+    this.service.getAllByFilter({} as WeatherForecast).subscribe((a) => {
       this.data = a;
     });
   }

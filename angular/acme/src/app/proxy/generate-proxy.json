@@ -3,6 +3,210 @@
     "app"
   ],
   "modules": {
+    "app": {
+      "rootPath": "app",
+      "remoteServiceName": "Default",
+      "controllers": {
+        "Acme.ApiHost.Controllers.WeatherForecastController": {
+          "controllerName": "WeatherForecast",
+          "controllerGroupName": "WeatherForecast",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Acme.ApiHost.Controllers.WeatherForecastController",
+          "interfaces": [],
+          "actions": {
+            "GetAllByFilter": {
+              "uniqueName": "GetAllByFilter",
+              "name": "GetAll",
+              "httpMethod": "GET",
+              "url": "api/weather-forecast",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "filter",
+                  "typeAsString": "Acme.ApiHost.WeatherForecast, Acme.ApiHost",
+                  "type": "Acme.ApiHost.WeatherForecast",
+                  "typeSimple": "Acme.ApiHost.WeatherForecast",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "filter",
+                  "name": "Id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "filter"
+                },
+                {
+                  "nameOnMethod": "filter",
+                  "name": "Date",
+                  "jsonName": null,
+                  "type": "System.DateTime",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "filter"
+                },
+                {
+                  "nameOnMethod": "filter",
+                  "name": "TemperatureC",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "filter"
+                },
+                {
+                  "nameOnMethod": "filter",
+                  "name": "Summary",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "filter"
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.IEnumerable<Acme.ApiHost.WeatherForecast>",
+                "typeSimple": "[Acme.ApiHost.WeatherForecast]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Acme.ApiHost.Controllers.WeatherForecastController"
+            },
+            "CreateByModel": {
+              "uniqueName": "CreateByModel",
+              "name": "Create",
+              "httpMethod": "POST",
+              "url": "api/weather-forecast",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "model",
+                  "typeAsString": "Acme.ApiHost.WeatherForecast, Acme.ApiHost",
+                  "type": "Acme.ApiHost.WeatherForecast",
+                  "typeSimple": "Acme.ApiHost.WeatherForecast",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "model",
+                  "name": "model",
+                  "jsonName": null,
+                  "type": "Acme.ApiHost.WeatherForecast",
+                  "typeSimple": "Acme.ApiHost.WeatherForecast",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Acme.ApiHost.Controllers.WeatherForecastController"
+            },
+            "DeleteById": {
+              "uniqueName": "DeleteById",
+              "name": "Delete",
+              "httpMethod": "DELETE",
+              "url": "api/weather-forecast/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [
+                    "GuidRouteConstraint"
+                  ],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Acme.ApiHost.Controllers.WeatherForecastController"
+            },
+            "GetById": {
+              "uniqueName": "GetById",
+              "name": "Get",
+              "httpMethod": "GET",
+              "url": "api/weather-forecast/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [
+                    "GuidRouteConstraint"
+                  ],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Acme.ApiHost.WeatherForecast",
+                "typeSimple": "Acme.ApiHost.WeatherForecast"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Acme.ApiHost.Controllers.WeatherForecastController"
+            }
+          }
+        }
+      }
+    },
     "abp": {
       "rootPath": "abp",
       "remoteServiceName": "abp",
@@ -84,37 +288,6 @@
           }
         }
       }
-    },
-    "app": {
-      "rootPath": "app",
-      "remoteServiceName": "Default",
-      "controllers": {
-        "Acme.ApiHost.Controllers.WeatherForecastController": {
-          "controllerName": "WeatherForecast",
-          "controllerGroupName": null,
-          "isRemoteService": false,
-          "apiVersion": null,
-          "type": "Acme.ApiHost.Controllers.WeatherForecastController",
-          "interfaces": [],
-          "actions": {
-            "Get": {
-              "uniqueName": "Get",
-              "name": "Get",
-              "httpMethod": "GET",
-              "url": "weather-forecast",
-              "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
-              "returnValue": {
-                "type": "System.Collections.Generic.IEnumerable<Acme.ApiHost.WeatherForecast>",
-                "typeSimple": "[Acme.ApiHost.WeatherForecast]"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Acme.ApiHost.Controllers.WeatherForecastController"
-            }
-          }
-        }
-      }
     }
   },
   "types": {
@@ -126,10 +299,22 @@
       "genericArguments": null,
       "properties": [
         {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
           "name": "Date",
           "jsonName": null,
-          "type": "System.DateOnly",
-          "typeSimple": "System.DateOnly",
+          "type": "System.DateTime",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -139,18 +324,6 @@
         },
         {
           "name": "TemperatureC",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "TemperatureF",
           "jsonName": null,
           "type": "System.Int32",
           "typeSimple": "number",
@@ -174,135 +347,6 @@
           "regex": null
         }
       ]
-    },
-    "System.DateOnly": {
-      "baseType": "System.ValueType",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "MinValue",
-          "jsonName": null,
-          "type": "System.DateOnly",
-          "typeSimple": "System.DateOnly",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "MaxValue",
-          "jsonName": null,
-          "type": "System.DateOnly",
-          "typeSimple": "System.DateOnly",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Year",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Month",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Day",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DayOfWeek",
-          "jsonName": null,
-          "type": "System.DayOfWeek",
-          "typeSimple": "System.DayOfWeek",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DayOfYear",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DayNumber",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "System.DayOfWeek": {
-      "baseType": "System.Enum",
-      "isEnum": true,
-      "enumNames": [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "enumValues": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "genericArguments": null,
-      "properties": null
     },
     "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationDto": {
       "baseType": null,
