@@ -10,6 +10,11 @@ import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/my-component',
+    pathMatch: 'full',
+  },
+  {
     path: 'dashboard',
     component: DashboardDemoComponent,
   },
@@ -30,7 +35,7 @@ const routes: Routes = [
     component: TreeDemoComponent,
   },
   {
-    path: '',
+    path: 'my-component',
     component: MyComponentComponent,
   },
 ];

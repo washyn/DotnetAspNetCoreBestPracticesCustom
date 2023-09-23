@@ -25,6 +25,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragDropDemoComponent } from './drag-drop-demo/drag-drop-demo.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MyComponentComponent } from './my-component/my-component.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MyComponentComponent } from './my-component/my-component.component';
     MatMenuModule,
     MatTreeModule,
     DragDropModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [],
