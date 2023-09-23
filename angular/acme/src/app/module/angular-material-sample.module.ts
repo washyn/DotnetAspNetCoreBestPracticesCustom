@@ -8,4 +8,4 @@ import { BrowserModule } from '@angular/platform-browser';
   providers: [],
   bootstrap: [],
 })
-export class AppModule {}
+export class AngularMaterialSamplesModule {}

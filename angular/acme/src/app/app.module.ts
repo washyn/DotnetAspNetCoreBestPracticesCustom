@@ -11,6 +11,7 @@ import { MessageComponent } from './components/message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NotifyComponent } from './components/notify/notify.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AngularMaterialSamplesModule } from './module/angular-material-sample.module';
 
 @NgModule({
   declarations: [NotifyComponent, MessageComponent, AppComponent],
@@ -23,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
+    AngularMaterialSamplesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
