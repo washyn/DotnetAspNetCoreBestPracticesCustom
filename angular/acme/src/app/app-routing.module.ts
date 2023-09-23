@@ -5,6 +5,8 @@ import { AddressFormDemoComponent } from './module/address-form-demo/address-for
 import { DragDropDemoComponent } from './module/drag-drop-demo/drag-drop-demo.component';
 import { TableDemoComponent } from './module/table-demo/table-demo.component';
 import { TreeDemoComponent } from './module/tree-demo/tree-demo.component';
+import { MyComponentComponent } from './module/my-component/my-component.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -26,6 +28,10 @@ const routes: Routes = [
   {
     path: 'tree',
     component: TreeDemoComponent,
+  },
+  {
+    path: 'my-component',
+    component: MyComponentComponent,
   },
 ];
 

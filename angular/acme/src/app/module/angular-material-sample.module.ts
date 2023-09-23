@@ -24,6 +24,7 @@ import { TreeDemoComponent } from './tree-demo/tree-demo.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { DragDropDemoComponent } from './drag-drop-demo/drag-drop-demo.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MyComponentComponent } from './my-component/my-component.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DashboardDemoComponent,
     TreeDemoComponent,
     DragDropDemoComponent,
+    MyComponentComponent,
   ],
   imports: [
     CommonModule,
@@ -57,13 +59,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   ],
   providers: [],
   bootstrap: [],
-  exports: [
-    AddressFormDemoComponent,
-    NavigationDemoComponent,
-    TableDemoComponent,
-    DashboardDemoComponent,
-    TreeDemoComponent,
-    DragDropDemoComponent,
-  ],
+  exports: [NavigationDemoComponent],
 })
 export class AngularMaterialSamplesModule {}

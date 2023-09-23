@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherForecast } from 'src/app/proxy/acme/api-host';
+import { WeatherForecastService } from 'src/app/proxy/acme/api-host/controllers';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
-  styleUrls: ['./my-component.component.css']
+  styleUrls: ['./my-component.component.css'],
 })
 export class MyComponentComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  data: WeatherForecast[] = [];
+  constructor(private service: WeatherForecastService, public util: UtilService) {}
+  showMessage() {
+    this.util.notify.info('Message', 'Hello worl');
   }
 
+  openDialog() {
+    this.util.message.confirm(
+      'hello',
+      'Develop',
+      (isConfirmed) => {
+        if (isConfirmed) {
+          this.util.notify.info('confirmado');
+        }
+      },
+      {
+        confirmText: 'Si confirmo',
+        cancelText: 'No, cancelar',
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.service.getAllByFilter({} as WeatherForecast).subscribe((a) => {
+      this.data = a;
+    });
+  }
 }

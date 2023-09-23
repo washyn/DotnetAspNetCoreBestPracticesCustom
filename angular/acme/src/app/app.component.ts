@@ -12,30 +12,5 @@ export class AppComponent implements OnInit {
   title = 'acme';
   data: WeatherForecast[] = [];
   constructor(private service: WeatherForecastService, public util: UtilService) {}
-
-  showMessage() {
-    this.util.notify.info('Message', 'Hello worl');
-  }
-
-  openDialog() {
-    this.util.message.confirm(
-      'hello',
-      'Develop',
-      (isConfirmed) => {
-        if (isConfirmed) {
-          this.util.notify.info('confirmado');
-        }
-      },
-      {
-        confirmText: 'Si confirmo',
-        cancelText: 'No, cancelar',
-      }
-    );
-  }
-
-  ngOnInit(): void {
-    this.service.getAllByFilter({} as WeatherForecast).subscribe((a) => {
-      this.data = a;
-    });
-  }
+  ngOnInit(): void {}
 }
