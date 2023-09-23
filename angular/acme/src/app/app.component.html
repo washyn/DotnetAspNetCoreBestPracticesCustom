@@ -1,14 +1,21 @@
-<router-outlet></router-outlet>
-<br>
-<button mat-raised-button (click)="util.notify.info('info', 'Hello worl')">info</button>
-<button mat-raised-button (click)="util.notify.warn('warn', 'Hello worl')">warn</button>
-<button mat-raised-button (click)="util.notify.success('success', 'Hello worl')">success</button>
-<button mat-raised-button (click)="util.notify.error('error', 'Hello worl')">error</button>
-<br>
-<button mat-raised-button (click)="openDialog()">Open dialog</button>
-<button mat-raised-button (click)="util.message.info('info', 'Hello worl')">info</button>
-<button mat-raised-button (click)="util.message.warn('warn', 'Hello worl')">warn</button>
-<button mat-raised-button (click)="util.message.success('success', 'Hello worl')">success</button>
-<button mat-raised-button (click)="util.message.error('error', 'Hello worl')">error</button>
-<hr>
-{{data|json}}
+<app-navigation-demo>
+    <router-outlet></router-outlet>
+    <app-address-form-demo></app-address-form-demo>
+    <app-dashboard-demo></app-dashboard-demo>
+    <app-drag-drop-demo></app-drag-drop-demo>
+    <app-table-demo></app-table-demo>
+    <app-tree-demo></app-tree-demo>
+    <br>
+    <button mat-raised-button (click)="util.notify.info('info', 'Hello worl')">info</button>
+    <button mat-raised-button (click)="util.notify.warn('warn', 'Hello worl')">warn</button>
+    <button mat-raised-button (click)="util.notify.success('success', 'Hello worl')">success</button>
+    <button mat-raised-button (click)="util.notify.error('error', 'Hello worl')">error</button>
+    <br>
+    <button mat-raised-button (click)="openDialog()">Open dialog</button>
+    <button mat-raised-button (click)="util.message.info('info', 'Hello worl')">info</button>
+    <button mat-raised-button (click)="util.message.warn('warn', 'Hello worl')">warn</button>
+    <button mat-raised-button (click)="util.message.success('success', 'Hello worl')">success</button>
+    <button mat-raised-button (click)="util.message.error('error', 'Hello worl')">error</button>
+    <hr>
+    {{data|json}}    
+</app-navigation-demo>
