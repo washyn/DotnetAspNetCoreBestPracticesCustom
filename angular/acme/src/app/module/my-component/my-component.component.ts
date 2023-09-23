@@ -1,4 +1,6 @@
+import { ApplicationConfigurationDto, ConfigStateService } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WeatherForecast } from 'src/app/proxy/acme/api-host';
 import { WeatherForecastService } from 'src/app/proxy/acme/api-host/controllers';
 import { UtilService } from 'src/app/services/util.service';
@@ -10,7 +12,10 @@ import { UtilService } from 'src/app/services/util.service';
 })
 export class MyComponentComponent implements OnInit {
   data: WeatherForecast[] = [];
-  constructor(private service: WeatherForecastService, public util: UtilService) {}
+
+  stateData: Observable<ApplicationConfigurationDto> = this.state.getAll$();
+
+  constructor(private service: WeatherForecastService, public util: UtilService, public state: ConfigStateService) {}
   showMessage() {
     this.util.notify.info('Message', 'Hello worl');
   }
