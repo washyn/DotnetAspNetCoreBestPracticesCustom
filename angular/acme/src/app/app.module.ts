@@ -7,9 +7,9 @@ import { AbpCustomModule } from './abp-custom.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
-import { MessageComponent } from './components/message/message.component';
+import { MessageComponent } from './module/components/message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NotifyComponent } from './components/notify/notify.component';
+import { NotifyComponent } from './module/components/notify/notify.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AngularMaterialSamplesModule } from './module/angular-material-sample.module';
 

@@ -30,7 +30,7 @@ const routes: Routes = [
     component: TreeDemoComponent,
   },
   {
-    path: 'my-component',
+    path: '',
     component: MyComponentComponent,
   },
 ];

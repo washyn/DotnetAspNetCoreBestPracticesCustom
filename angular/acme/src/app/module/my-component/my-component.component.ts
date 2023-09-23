@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WeatherForecast } from 'src/app/proxy/acme/api-host';
 import { WeatherForecastService } from 'src/app/proxy/acme/api-host/controllers';
-import { UtilService } from 'src/app/services/util.service';
+import { UtilService } from 'src/app/module/components/services/util.service';
 
 @Component({
   selector: 'app-my-component',

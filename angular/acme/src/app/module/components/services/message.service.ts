@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MessageComponent } from '../components/message/message.component';
+import { MessageComponent } from '../message/message.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { resolve } from '@angular/compiler-cli';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherForecastService } from './proxy/acme/api-host/controllers';
 import { WeatherForecast } from './proxy/acme/api-host';
-import { UtilService } from './services/util.service';
+import { UtilService } from './module/components/services/util.service';
 
 @Component({
   selector: 'app-root',

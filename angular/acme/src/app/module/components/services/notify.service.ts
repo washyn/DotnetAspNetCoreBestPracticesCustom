@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NotifyComponent } from '../components/notify/notify.component';
+import { NotifyComponent } from '../notify/notify.component';
 
 export type TypeNotify = 'info' | 'success' | 'warn' | 'error';
 export interface NotifyData {
