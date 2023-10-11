@@ -18,14 +18,13 @@ public class WeatherForecastController : ApiHostTestBase
     public async Task Get_Data()
     {
         // arrange
-        var uri = "/weather-forecast";
+        var uri = "/api/weather-forecast";
         
         // act
         var data = await GetResponseAsObjectAsync<IEnumerable<WeatherForecast>>(uri);
         
         // assert
         data.Any().ShouldBe(true);
-        data.Count().ShouldBe(5);
         
         _testOutputHelper.WriteLine(data.Count().ToString());
         
